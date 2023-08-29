@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TrendWisp</title>
+    
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            overflow: auto;
+        }
+        
+        header {
+            text-align: center;
+            padding: 20px 0;
+        }
+        
+        main {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            margin-top: -30px;
+        }
+        
+        #lastUpdated {
+            font-size: 20px;
+        }
+
+        #aboutUs {
+            text-align: center;
+            margin-top: 10px;
+            font-size: 17px;
+        }
+        
+        #donate {
+            text-align: center;
+            margin-top: 10px;
+            font-size: 15px;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="hero">
+        <h1>TrendWisp</h1>
+        <p>Anticipate Trends, Seize Opportunities.</p>
+    </header>
+
+    <main>
+        <section id="priceStatus">
+            <div class="status-container">
+                <div class="status">
+                    <h2><p id="lastUpdated">Last Updated: Loading...</p></h2>
+                    <span id="statusText">Loading...</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="aboutUs">
+            <p><h4>How does it work? Simple.</h4> Through the lens of trend analysis, our platform provides you with a clear perspective on the direction in which the market is heading, allowing you to align your trading decisions with the prevailing trends. Our analysis primarily draws data from the BTC/USD Weekly chart - it serves as a strategic compass, allowing you to find long-term support in bull market, identify long-term resistance in bear market and understand long-term trend shifts that shape the crypto landscape. However, it's essential to comprehend all the associated risks and base your final decisions on your own research.</p>
+        </section>
+
+    </main>
+
+    <footer>
+    <p>&copy; 2023 TrendWisp. All rights reserved.</p>
+    <p>Follow us on <a href="https://twitter.com/trendwisp" target="_blank">Twitter</a> for the latest updates.</p>
+    
+    <div id="support">
+        <p>Support us &hearts; <button class="copy-button" data-address="bc1qgtrhzn0mpvcxnfrpu0wt53mnh8ywx29tftvjeq">Copy BTC Address</button> <button class="copy-button" data-address="0x026a09035611e641eBAa4257e3aD571295bBEcc7">Copy ETH Address</button></p>
+    </div>
+    
+    <script>
+        const copyButtons = document.querySelectorAll('.copy-button');
+
+        copyButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const address = button.getAttribute('data-address');
+                copyToClipboard(address);
+                alert(`Address copied to clipboard: ${address}`);
+            });
+        });
+
+        function copyToClipboard(text) {
+            const textarea = document.createElement('textarea');
+            textarea.value = text;
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textarea);
+        }
+    </script>
+</footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
